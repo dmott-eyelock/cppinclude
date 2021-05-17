@@ -70,6 +70,14 @@ if(MSVC)
 	set_target_properties(${PROJECT_NAME} PROPERTIES LINK_FLAGS "/INCREMENTAL:NO")
 endif()
 
+
+find_file(_lib NAMES libstdc++-6.dll)
+
+set(CMAKE_INSTALL_SYSTEM_RUNTIME_LIBS 
+  ${_lib}
+)
+include(InstallRequiredSystemLibraries)
+
 include(InstallConfig)
 include(CPack)
 
